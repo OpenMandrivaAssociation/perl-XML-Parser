@@ -4,7 +4,7 @@
 Summary: 	A perl module for parsing XML documents
 Name: 		%{name}
 Version: 	2.34
-Release: 	%mkrel 4
+Release: 	%mkrel 5
 License: 	GPL
 Group: 		Development/Perl
 Source: 	http://www.cpan.org/authors/id/C/CO/COOPERCL/%{module}-%{version}.tar.bz2
