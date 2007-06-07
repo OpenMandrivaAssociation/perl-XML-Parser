@@ -36,7 +36,7 @@ rm -rf %{buildroot}
 rm -rf %{buildroot}
 %makeinstall_std
 install -m 644 enc/koi8-r.enc %{buildroot}%{perl_vendorarch}/XML/Parser/Encodings
-chrpath -d %{perl_vendorarch}/auto/XML/Parser/Expat/Expat.so
+chrpath -d %{buildroot}%{perl_vendorarch}/auto/XML/Parser/Expat/Expat.so
 
 %files
 %defattr(-,root,root)
