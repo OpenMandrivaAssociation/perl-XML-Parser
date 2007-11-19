@@ -1,32 +1,37 @@
-%define	name	perl-XML-Parser
 %define	module	XML-Parser
+%define	name	perl-%{module}
+%define	version 2.35
 
-Summary:	A perl module for parsing XML documents
 Name:		%{name}
-Version:	2.34
-Release:	%mkrel 6
+Version:	%{version}
+Release:	%mkrel 1
+Summary:	A perl module for parsing XML documents
 License:	GPL
 Group:		Development/Perl
-Source:		http://www.cpan.org/authors/id/C/CO/COOPERCL/%{module}-%{version}.tar.bz2
+URL:            http://search.cpan.org/dist/%{module}
+Source:         http://www.cpan.org/modules/by-module/XML/%{module}-%{version}.tar.gz
 Source1:	http://uucode.com/xml/perl/enc.tar.bz2
-Url: 		http://www.cpan.org
-Requires:	perl
+Patch:          %{name}-2.35-fix-makefile.patch     
 BuildRequires:	libexpat-devel >= 2.0.1
 BuildRequires:	perl-devel
 BuildRequires:	perl-libwww-perl
 BuildRequires:	perl-HTML-Parser
 BuildRequires:	chrpath
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRoot:	    %{_tmppath}/%{name}-%{version}
 
 %description
 A perl module for parsing XML documents.
 
 %prep
-%setup -q -n %{module}-%{version} -a 1
+%setup -q -n %{module}-%{version}
+%setup -q -n %{module}-%{version} -T -D -a 1
+%patch -p0
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
 %make OPTIMIZE="%{optflags}"
+
+%check
 make test
 
 %clean 
