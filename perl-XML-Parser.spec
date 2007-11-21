@@ -1,6 +1,6 @@
 %define	module	XML-Parser
 %define	name	perl-%{module}
-%define	version 2.35
+%define	version 2.36
 
 Name:		%{name}
 Version:	%{version}
@@ -11,7 +11,6 @@ Group:		Development/Perl
 URL:            http://search.cpan.org/dist/%{module}
 Source:         http://www.cpan.org/modules/by-module/XML/%{module}-%{version}.tar.gz
 Source1:	http://uucode.com/xml/perl/enc.tar.bz2
-Patch:          %{name}-2.35-fix-makefile.patch     
 BuildRequires:	libexpat-devel >= 2.0.1
 BuildRequires:	perl-devel
 BuildRequires:	perl-libwww-perl
@@ -25,7 +24,6 @@ A perl module for parsing XML documents.
 %prep
 %setup -q -n %{module}-%{version}
 %setup -q -n %{module}-%{version} -T -D -a 1
-%patch -p0
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
