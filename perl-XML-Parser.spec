@@ -16,6 +16,7 @@ BuildRequires:	perl-devel
 BuildRequires:	perl-libwww-perl
 BuildRequires:	perl-HTML-Parser
 BuildRequires:	chrpath
+BuildRoot:	    %{_tmppath}/%{name}-%{version}
 
 %description
 A perl module for parsing XML documents.
