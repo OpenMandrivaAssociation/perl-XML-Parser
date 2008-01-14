@@ -4,7 +4,7 @@
 
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 2
+Release:	%mkrel 3
 Summary:	A perl module for parsing XML documents
 License:	GPL
 Group:		Development/Perl
