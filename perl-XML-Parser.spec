@@ -26,6 +26,7 @@ A perl module for parsing XML documents.
 %setup -q -n %{module}-%{version} -T -D -a 1
 
 %build
+%define Werror_cflags %{nil}
 perl Makefile.PL INSTALLDIRS=vendor
 %make OPTIMIZE="%{optflags}"
 
