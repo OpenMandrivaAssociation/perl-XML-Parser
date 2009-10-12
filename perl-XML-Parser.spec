@@ -8,9 +8,10 @@ Release:	%mkrel 1
 Summary:	A perl module for parsing XML documents
 License:	GPL
 Group:		Development/Perl
-URL:            http://search.cpan.org/dist/%{upstream_name}
+URL:        http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/XML/%{upstream_name}-%{upstream_version}.tar.gz
 Source1:	http://uucode.com/xml/perl/enc.tar.bz2
+Patch0:     XML-Parser-2.36-use_filehandle.patch
 
 BuildRequires:	chrpath
 BuildRequires:	libexpat-devel >= 2.0.1
@@ -25,6 +26,7 @@ A perl module for parsing XML documents.
 %prep
 %setup -q -n %{upstream_name}-%{upstream_version}
 %setup -q -n %{upstream_name}-%{upstream_version} -T -D -a 1
+%patch0 -p0 -b .filehandle
 
 %build
 %define Werror_cflags %{nil}
