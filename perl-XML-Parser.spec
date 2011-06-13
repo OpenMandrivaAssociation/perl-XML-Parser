@@ -1,9 +1,9 @@
 %define	upstream_name	 XML-Parser
-%define	upstream_version 2.40
+%define	upstream_version 2.41
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	%mkrel 2
+Release:	%mkrel 1
 
 Summary:	A perl module for parsing XML documents
 License:	GPL
