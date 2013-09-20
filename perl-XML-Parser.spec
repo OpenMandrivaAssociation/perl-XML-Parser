@@ -5,24 +5,23 @@ Summary:	A perl module for parsing XML documents
 Name:		perl-%{modname}
 Version:	%{perl_convert_version %{modver}}
 Release:	8
-License:	GPL+ or Artistic
+License:	GPLv2+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{modname}
+Url:		http://search.cpan.org/dist/%{modname}
 Source0:	http://www.cpan.org/modules/by-module/XML/%{modname}-%{modver}.tar.gz
 Source1:	http://uucode.com/xml/perl/enc.tar.bz2
 Patch0:		XML-Parser-2.36-use_filehandle.patch
-
-BuildRequires:	pkgconfig(expat)
-BuildRequires:	perl(HTML::Parser)
 BuildRequires:	perl-devel
 BuildRequires:	perl-List-MoreUtils
 BuildRequires:	perl-libwww-perl
+BuildRequires:	perl(HTML::Parser)
+BuildRequires:	pkgconfig(expat)
 
 %description
 A perl module for parsing XML documents.
 
 %prep
-%setup -q -n %{modname}-%{modver} -a1
+%setup -qn %{modname}-%{modver} -a1
 %patch0 -p0 -b .filehandle~
 
 %build
@@ -38,6 +37,7 @@ install -m644 enc/koi8-r.enc %{buildroot}%{perl_vendorarch}/XML/Parser/Encodings
 
 %files
 %doc README Changes
-%{_mandir}/*/*
 %{perl_vendorarch}/XML/Parser*
 %{perl_vendorarch}/auto/XML/Parser*
+%{_mandir}/man3/*
+
