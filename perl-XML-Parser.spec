@@ -4,7 +4,7 @@
 Summary:	A perl module for parsing XML documents
 Name:		perl-%{modname}
 Version:	%{perl_convert_version %{modver}}
-Release:	8
+Release:	9
 License:	GPL+ or Artistic
 Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%{modname}
