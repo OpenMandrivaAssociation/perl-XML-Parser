@@ -1,10 +1,10 @@
 %define	modname	XML-Parser
-%define	modver	2.41
+%define	modver	2.44
 
 Summary:	A perl module for parsing XML documents
 Name:		perl-%{modname}
 Version:	%{perl_convert_version %{modver}}
-Release:	20
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
