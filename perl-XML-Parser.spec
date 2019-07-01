@@ -4,10 +4,10 @@
 Summary:	A perl module for parsing XML documents
 Name:		perl-%{modname}
 Version:	%{perl_convert_version %{modver}}
-Release:	3
+Release:	4
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{modname}
+Url:		https://metacpan.org/pod/XML::Parser
 Source0:	http://www.cpan.org/modules/by-module/XML/%{modname}-%{modver}.tar.gz
 Source1:	http://uucode.com/xml/perl/enc.tar.bz2
 Patch0:		XML-Parser-2.36-use_filehandle.patch
