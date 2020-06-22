@@ -17,7 +17,6 @@ Group:		Development/Perl
 Url:		https://metacpan.org/pod/XML::Parser
 Source0:	http://www.cpan.org/modules/by-module/XML/%{modname}-%{modver}.tar.gz
 Source1:	http://uucode.com/xml/perl/enc.tar.bz2
-Patch0:		XML-Parser-2.36-use_filehandle.patch
 BuildRequires:	perl-devel
 BuildRequires:	perl-List-MoreUtils
 BuildRequires:	perl-libwww-perl
@@ -31,8 +30,7 @@ BuildRequires:	perl(Test::More)
 A perl module for parsing XML documents.
 
 %prep
-%setup -qn %{modname}-%{modver} -a1
-%patch0 -p0 -b .filehandle~
+%autosetup -n %{modname}-%{modver} -a1 -p1
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
