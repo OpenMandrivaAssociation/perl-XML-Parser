@@ -1,5 +1,5 @@
 %define	modname	XML-Parser
-%define	modver	2.44
+%define	modver	2.46
 
 %ifarch %{aarch64}
 # FIXME as of clang 9.0 20190709, building with LTO results in
@@ -11,7 +11,7 @@
 Summary:	A perl module for parsing XML documents
 Name:		perl-%{modname}
 Version:	%{perl_convert_version %{modver}}
-Release:	5
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/pod/XML::Parser
@@ -36,13 +36,13 @@ A perl module for parsing XML documents.
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
-%make OPTIMIZE="%{optflags}"
+%make_build OPTIMIZE="%{optflags}"
 
 %check
 make test || :
 
 %install
-%makeinstall_std
+%make_install
 install -m644 enc/koi8-r.enc %{buildroot}%{perl_vendorarch}/XML/Parser/Encodings
 
 %files
