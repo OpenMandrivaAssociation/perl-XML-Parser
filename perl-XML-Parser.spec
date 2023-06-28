@@ -1,21 +1,20 @@
 %define	modname	XML-Parser
-%define	modver	2.46
 
 %ifarch %{aarch64}
 # FIXME as of clang 9.0 20190709, building with LTO results in
 # Can't find 'boot_XML__Parser__Expat' symbol in /home/bero/temp/abf/perl-XML-Parser/BUILD/XML-Parser-2.44/blib/arch/auto/XML/Parser/Expat/Expat.so
 # when running "use XML::Parser;"
-%global _disable_lto 1
+#global _disable_lto 1
 %endif
 
 Summary:	A perl module for parsing XML documents
 Name:		perl-%{modname}
-Version:	%{perl_convert_version %{modver}}
-Release:	4
+Version:	2.46
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/pod/XML::Parser
-Source0:	http://www.cpan.org/modules/by-module/XML/%{modname}-%{modver}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/XML/%{modname}-%{version}.tar.gz
 Source1:	http://uucode.com/xml/perl/enc.tar.bz2
 BuildRequires:	perl-devel
 BuildRequires:	perl-List-MoreUtils
@@ -30,7 +29,7 @@ BuildRequires:	perl(Test::More)
 A perl module for parsing XML documents.
 
 %prep
-%autosetup -n %{modname}-%{modver} -a1 -p1
+%autosetup -n %{modname}-%{version} -a1 -p1
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
