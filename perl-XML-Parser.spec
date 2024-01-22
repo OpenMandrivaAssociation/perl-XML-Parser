@@ -33,7 +33,7 @@ A perl module for parsing XML documents.
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
-%make_build OPTIMIZE="%{optflags}"
+%make_build CC="%{__cc}" LD="%{__cc}" OPTIMIZE="%{optflags}"
 
 %check
 make test || :
