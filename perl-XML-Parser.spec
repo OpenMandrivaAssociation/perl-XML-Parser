@@ -16,6 +16,7 @@ Group:		Development/Perl
 Url:		https://metacpan.org/pod/XML::Parser
 Source0:	http://www.cpan.org/modules/by-module/XML/%{modname}-%{version}.tar.gz
 Source1:	http://uucode.com/xml/perl/enc.tar.bz2
+BuildRequires:	make
 BuildRequires:	perl-devel
 BuildRequires:	perl-List-MoreUtils
 BuildRequires:	perl-libwww-perl
