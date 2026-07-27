@@ -48,5 +48,6 @@ install -m644 enc/koi8-r.enc %{buildroot}%{perl_vendorarch}/XML/Parser/Encodings
 %doc Changes
 %{perl_vendorarch}/XML/Parser*
 %{perl_vendorarch}/auto/XML/Parser*
+%{perl_vendorarch}/auto/share/dist/XML-Parser/
 %{_mandir}/man3/*
 
