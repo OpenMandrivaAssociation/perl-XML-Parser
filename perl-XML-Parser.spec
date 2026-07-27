@@ -9,12 +9,12 @@
 
 Summary:	A perl module for parsing XML documents
 Name:		perl-%{modname}
-Version:	2.47
-Release:	3
+Version:	2.59
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/pod/XML::Parser
-Source0:	http://www.cpan.org/modules/by-module/XML/%{modname}-%{version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/T/TO/TODDR/%{modname}-%{version}.tar.gz
 Source1:	http://uucode.com/xml/perl/enc.tar.bz2
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -25,6 +25,7 @@ BuildRequires:	pkgconfig(expat)
 # For tests
 BuildRequires:	perl(Test)
 BuildRequires:	perl(Test::More)
+BuildRequires:	perl-File-ShareDir-Install
 
 %description
 A perl module for parsing XML documents.
@@ -44,7 +45,7 @@ make test || :
 install -m644 enc/koi8-r.enc %{buildroot}%{perl_vendorarch}/XML/Parser/Encodings
 
 %files
-%doc README Changes
+%doc Changes
 %{perl_vendorarch}/XML/Parser*
 %{perl_vendorarch}/auto/XML/Parser*
 %{_mandir}/man3/*
