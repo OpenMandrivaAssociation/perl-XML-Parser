@@ -10,7 +10,7 @@
 Summary:	A perl module for parsing XML documents
 Name:		perl-%{modname}
 Version:	2.59
-Release:	1
+Release:	2
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/pod/XML::Parser
@@ -34,7 +34,27 @@ A perl module for parsing XML documents.
 %autosetup -n %{modname}-%{version} -a1 -p1
 
 %build
+%if %{cross_compiling}
+# Host perl + ExtUtils::MakeMaker. Devel::CheckLib uses Config{cc} and
+# cannot compile target headers; MakeMaker then injects host libpth
+# (-L/usr/lib64, a linker script on x86_64).
+export CC="%{__cc}"
+export EXPATLIBPATH=%{_prefix}/%{_target_platform}%{_libdir}
+export EXPATINCPATH=%{_prefix}/%{_target_platform}%{_includedir}
+sed -i 's/check_lib(/1 || check_lib(/' Makefile.PL
+perl Makefile.PL INSTALLDIRS=vendor \
+	EXPATLIBPATH="$EXPATLIBPATH" \
+	EXPATINCPATH="$EXPATINCPATH" \
+	INC="-I$EXPATINCPATH" \
+	LIBS="-L$EXPATLIBPATH -lexpat" \
+	LDDLFLAGS="-shared -L$EXPATLIBPATH"
+[ -f Makefile ] || exit 1
+find . -name Makefile | xargs -r sed -i \
+	-e "s|-L/usr/lib64|-L$EXPATLIBPATH|g" \
+	-e "s|-L/usr/local/lib||g"
+%else
 perl Makefile.PL INSTALLDIRS=vendor
+%endif
 %make_build CC="%{__cc}" LD="%{__cc}" OPTIMIZE="%{optflags}"
 
 %check
